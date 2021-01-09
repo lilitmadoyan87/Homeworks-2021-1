@@ -1,0 +1,16 @@
+function numberOfStringsAndIntegersInArray(arr) {
+  let countStr = 0;
+  let countInt = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(typeof arr[i] === 'number') {
+      countInt ++
+    } 
+    if(typeof arr[i] === 'string') {
+      countStr ++
+    }
+  }
+  return `Numbers: ${countInt}, Strings; ${countStr}`;
+}
+
+let arr1 = [1, 2, 'Home', '21', 21, null, undefined, 'Hello, world'];
+console.log(numberOfStringsAndIntegersInArray(arr1));
