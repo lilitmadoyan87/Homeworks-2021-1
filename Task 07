@@ -1,0 +1,38 @@
+function calcProductOfBiggestNegativeElements(arr) {
+  if(checkIfElementsOfArrayAreArrays(arr) === true) {
+    let sum = 0;
+    for(let i = 0; i < arr.length; i++) {
+       sum += findBiggestNegativeNumberOfArray(arr[i])
+    }
+    return sum;
+  } else{
+    return 'Invalid argument';
+  }
+}
+
+function findBiggestNegativeNumberOfArray(arr) {
+  let maxNeg = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] < maxNeg) {
+      maxNeg = arr[i]
+    } 
+  }
+  return maxNeg;
+}
+
+function checkIfElementsOfArrayAreArrays(arr) {
+  for(let i = 0; i < arr.length; i++) {
+    if(Array.isArray(arr[i]) === false) {
+      return false;
+    }
+  } 
+  return true;
+}
+
+let arr = [[1, 2, -3, 4], [0, 2, 5, 7], [3, 9, 2], 0];
+
+if (calcProductOfBiggestNegativeElements(arr) === 0) {
+  console.log('No negatives');
+} else{
+  console.log(calcProductOfBiggestNegativeElements(arr))
+};
